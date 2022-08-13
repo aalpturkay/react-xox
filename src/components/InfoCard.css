@@ -1,0 +1,35 @@
+.info-card{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    border-radius: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: bisque;
+    box-shadow: 7px 7px 3px lightblue;
+    color: darkmagenta;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+
+.btn{
+    cursor: pointer;
+    padding: 1em 2em;
+    transition: all .3s;
+    border: none;
+    border-radius: .5rem;
+    background-color: blueviolet;
+    color: wheat;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 1px 15px rgba(255, 0, 130, 0.5);
+    color: yellow;
+}
