@@ -11,7 +11,7 @@
     background-color: darkmagenta;
     font-size: 36px;
     font-weight: bolder;
-    transition: width .15s, height .15s;
+    transition: all .15s;
 }
 
 .square:hover{

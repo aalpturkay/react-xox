@@ -14,7 +14,6 @@ function App() {
   const [player, setPlayer] = useState("");
   const [endGame, setEndGame] = useState(false);
   const [winner, setWinner] = useState("");
-
   const WIN_CASES = [
     [0, 1, 2],
     [3, 4, 5],
@@ -27,53 +26,56 @@ function App() {
   ];
 
   useEffect(() => {
-    setPlayer(getRandomPlayer());
+    if (cells === INITIAL_STATE) {
+      setPlayer(getRandomPlayer());
+      console.log("Set random player");
+    }
   }, []);
 
   useEffect(() => {
     if (cells === INITIAL_STATE) return;
 
+    controlTie();
     controlWinCases();
   }, [cells]);
 
   function restartGame() {
-    setCells(INITIAL_STATE);
     setEndGame(false);
-    setWinner(false);
+    setWinner("");
     setPlayer(getRandomPlayer());
+    setCells(INITIAL_STATE);
   }
 
   function controlWinCases() {
-    WIN_CASES.map((val, i) => {
-      if (
-        cells[val[0]] !== "" &&
-        cells[val[1]] !== "" &&
-        cells[val[2]] !== ""
-      ) {
-        if (
-          cells[val[0]] === cells[val[1]] &&
-          cells[val[1]] === cells[val[2]]
-        ) {
-          setWinner(player);
-          console.log(`Player ${player} win!`);
-          setEndGame(true);
-        }
-      }
-    });
+    for (let i = 0; i < WIN_CASES.length; i++) {
+      const winCase = WIN_CASES[i];
+      const first = cells[winCase[0]];
+      const second = cells[winCase[1]];
+      const third = cells[winCase[2]];
 
+      if (first === "" || second === "" || third === "") {
+        continue;
+      }
+      if (first === second && second === third) {
+        setWinner(player);
+        setEndGame(true);
+        break;
+      }
+    }
+
+    if (!endGame) changeTurn();
+  }
+
+  function controlTie() {
     if (!cells.includes("")) {
       setWinner("Berabere");
       setEndGame(true);
     }
-
-    if (endGame) {
-      return;
-    }
-
-    changeTurn();
   }
 
   function changeTurn() {
+    console.log("Turn");
+    console.log(endGame);
     setPlayer(player === "X" ? "O" : "X");
   }
 

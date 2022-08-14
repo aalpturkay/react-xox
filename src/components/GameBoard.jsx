@@ -11,7 +11,7 @@ function GameBoard({ cells, onClick }) {
             key={index}
             val={val}
             onClick={() => {
-              onClick(index);
+              if (onClick !== null) onClick(index);
             }}
           />
         );
