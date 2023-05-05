@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-xox/static/css/main.6dfb20c1.css",
+    "main.js": "/react-xox/static/js/main.cd840efe.js",
+    "index.html": "/react-xox/index.html",
+    "main.6dfb20c1.css.map": "/react-xox/static/css/main.6dfb20c1.css.map",
+    "main.cd840efe.js.map": "/react-xox/static/js/main.cd840efe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6dfb20c1.css",
+    "static/js/main.cd840efe.js"
+  ]
+}
